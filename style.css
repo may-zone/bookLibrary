@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: sans-serif;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    background-color: moccasin;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 70%;
+    height: 600px;
+    min-width: 1080px;
+}
+.title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 15px;
+}
+.addBook{
+    position:absolute;
+    bottom: 40px;
+    
+}
+#bookInfo{
+    font-size: x-large;
+    border-radius: 25px;
+    padding: 5px;
+}
