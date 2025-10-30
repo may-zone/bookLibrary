@@ -1,6 +1,6 @@
 const bookList=[];
 
-function Book(title,author,genre,pages,read){
+function Book(title,author,genre,pages,read = false){
     this.title=title;
     this.author=author;
     this.genre=genre;
