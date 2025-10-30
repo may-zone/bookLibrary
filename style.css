@@ -47,7 +47,6 @@ body{
     display: grid;
     width: 85%;
     height: 75%;
-    background-color: aqua;
     gap: 15px;
     grid-template-rows: repeat(auto-fit, minmax(120px, 1fr));
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -56,6 +55,8 @@ body{
 .card{
     background-color: orange;
     border-radius: 15px;
+    padding: 10%;
+    
 }
 .form{
     display: none;
