@@ -9,3 +9,7 @@ function Book(title,author,genre,pages,read = false){
     this.id = crypto.randomUUID();
 
 }
+function addBookToLibrary(title,author,genre,pages,read){
+    const newBook = new Book(title,author,genre,pages,read);
+    bookList.push(newBook);
+}
