@@ -103,3 +103,16 @@ body{
   color: red;
   transform: scale(1.3);
 }
+
+#bookInfo{
+  background: url(images/newBook.png) no-repeat center /contain;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: clamp(60px, 8vw, 100px);
+  height: clamp(60px, 8vw, 100px);
+}
+#bookInfo:hover {
+  transform: scale(1.5); 
+}
