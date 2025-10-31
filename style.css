@@ -134,7 +134,7 @@ body{
   background: #9e9e9e73;
   padding: 20px 30px;
   border-radius: 15px;
-  box-shadow: 0 0 20px #9E9E9E;
+  box-shadow: 0 0 8px 7px #9E9E9E;
   display: flex;
   flex-direction: column;
   gap: 10px;
