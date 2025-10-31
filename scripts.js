@@ -23,17 +23,33 @@ function render() {
   bookList.forEach((Book) => {
     const card = document.createElement("div");
     card.classList.add("card");
-    card.innerHTML = `
-              <h3>${Book.title}</h3>
-      <p><strong>Author:</strong> ${Book.author}</p>
-      <p><strong>Genre:</strong> ${Book.genre}</p>
-      <p><strong>Pages:</strong> ${Book.pages}</p>
-      <p>  <strong>Read:</strong> 
-  <span class="read-toggle" data-id="${Book.id}">
-    ${Book.read ? "✅" : "❌"}
-  </span></p>
-      <span class="remove-btn" data-id="${Book.id}"></span>`;
+    card.innerHTML = card.innerHTML = `
+  <h3>${Book.title}</h3>
+
+  <div class="book-details hidden">
+    <p><strong>Author:</strong> ${Book.author}</p>
+    <p><strong>Genre:</strong> ${Book.genre}</p>
+    <p><strong>Pages:</strong> ${Book.pages}</p>
+    <p><strong>Read:</strong> 
+      <span class="read-toggle" data-id="${Book.id}">
+        ${Book.read ? "✅" : "❌"}
+      </span>
+    </p>
+  </div>
+
+  <button class="show-more">Show more</button>
+  <span class="remove-btn" data-id="${Book.id}"></span>
+`;
     container.appendChild(card);const toggle = card.querySelector('.read-toggle');
+    const showMoreBtn = card.querySelector(".show-more");
+const details = card.querySelector(".book-details");
+
+showMoreBtn.addEventListener("click", () => {
+  details.classList.toggle("hidden");
+  showMoreBtn.textContent = details.classList.contains("hidden")
+    ? "Show more"
+    : "Show less";
+});
 toggle.addEventListener('click', () => toggleReadStatus(Book.id));
 
 const remove = card.querySelector('.remove-btn');
