@@ -94,6 +94,9 @@ body{
   text-shadow: #000000 -2px 1px 9px;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease;
+  width: 24px;
+  height: 24px;
+  background: url(images/delete-button.png) no-repeat center /contain;
 }
 
 .remove-btn:hover {

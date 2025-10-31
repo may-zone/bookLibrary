@@ -32,8 +32,8 @@ function render(){
       <p><strong>Author:</strong> ${Book.author}</p>
       <p><strong>Genre:</strong> ${Book.genre}</p>
       <p><strong>Pages:</strong> ${Book.pages}</p>
-      <p><strong>Read:</strong> ${Book.read ? '✅ Yes' : '❌ No'}</p>
-      <span class="remove-btn" data-id="${Book.id}">X</span>`;
+      <p><strong>Read:</strong> ${Book.read ? '✅ ' : '❌'}</p>
+      <span class="remove-btn" data-id="${Book.id}"></span>`;
       container.appendChild(card);
 
     });
