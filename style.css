@@ -106,6 +106,7 @@ body{
 
 #bookInfo{
   background: url(images/newBook.png) no-repeat center /contain;
+  filter: brightness(0) invert(1);
   background-color: transparent;
   border: none;
   cursor: pointer;
