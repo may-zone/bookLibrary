@@ -19,6 +19,8 @@ addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "Fantasy", 310, false);
 addBookToLibrary("یک عاشقانه آرام", "نادر ابراهیمی", "عاشقانه", 237 ,false);
 
 
+
+
 function render(){
     const container = document.querySelector('.booth');
     container.innerHTML = ''
@@ -35,4 +37,19 @@ function render(){
       container.appendChild(card);
 
     });
+    const removeBtn = document.querySelectorAll('.remove-btn');
+    removeBtn.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const id = e.target.dataset.id;
+            removeBook(id);
+        });
+    });
+}
+
+function removeBook(id) {
+    const index = bookList.findIndex(book => book.id=== id);
+    if(index !== -1){
+        bookList.splice(index,1);
+        render();
+    }
 }
