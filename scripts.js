@@ -54,3 +54,28 @@ function removeBook(id) {
     }
     
 }
+
+const addBookBtn = document.getElementById('bookInfo');
+const formContainer = document.querySelector('.form');
+const closeFormBtn = document.getElementById('closeForm');
+const bookForm = document.getElementById('bookForm');
+
+addBookBtn.addEventListener('click', () => {
+  formContainer.style.display = 'flex';
+});
+closeFormBtn.addEventListener('click', () => {
+  formContainer.style.display = 'none';
+});
+
+bookForm.addEventListener('submit', (e) => {
+  e.preventDefault(); 
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const genre = document.getElementById('genre').value;
+  const pages = document.getElementById('pages').value;
+  const read = document.getElementById('read').checked;
+  addBookToLibrary(title, author, genre, pages, read);
+
+  bookForm.reset();
+  formContainer.style.display = 'none';
+});
