@@ -1,25 +1,21 @@
-const bookList=[];
+const bookList = [];
 
-function Book(title,author,genre,pages,read = false){
-    this.title=title;
-    this.author=author;
-    this.genre=genre;
-    this.pages=pages;
-    this.read=read;
-    this.id = crypto.randomUUID();
-
+function Book(title, author, genre, pages, read = false) {
+  this.title = title;
+  this.author = author;
+  this.genre = genre;
+  this.pages = pages;
+  this.read = read;
+  this.id = crypto.randomUUID();
 }
-function addBookToLibrary(title,author,genre,pages,read){
-    const newBook = new Book(title,author,genre,pages,read);
-    bookList.push(newBook);
-    render();
+function addBookToLibrary(title, author, genre, pages, read) {
+  const newBook = new Book(title, author, genre, pages, read);
+  bookList.push(newBook);
+  render();
 }
 addBookToLibrary("1984", "George Orwell", "Dystopian", 328, false);
-addBookToLibrary("یک عاشقانه آرام", "نادر ابراهیمی", "عاشقانه", 237 ,true);
+addBookToLibrary("یک عاشقانه آرام", "نادر ابراهیمی", "عاشقانه", 237, true);
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "Fantasy", 310, true);
-
-
-
 
 function render() {
   const container = document.querySelector(".booth");
@@ -37,61 +33,50 @@ function render() {
     ${Book.read ? "✅" : "❌"}
   </span></p>
       <span class="remove-btn" data-id="${Book.id}"></span>`;
-      const readToggles = document.querySelectorAll('.read-toggle');
-readToggles.forEach(toggle => {
-  toggle.addEventListener('click', (e) => {
-    const id = e.target.dataset.id;
-    toggleReadStatus(id);
-  });
-});
-    container.appendChild(card);
-  });
-  const removeBtn = document.querySelectorAll(".remove-btn");
-  removeBtn.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const id = e.target.dataset.id;
-      removeBook(id);
-    });
+    container.appendChild(card);const toggle = card.querySelector('.read-toggle');
+toggle.addEventListener('click', () => toggleReadStatus(Book.id));
+
+const remove = card.querySelector('.remove-btn');
+remove.addEventListener('click', () => removeBook(Book.id));
   });
 }
 
 function removeBook(id) {
-    const index = bookList.findIndex(book => book.id=== id);
-    if(index !== -1){
-        bookList.splice(index,1);
-        render();
-    }
-    
+  const index = bookList.findIndex((book) => book.id === id);
+  if (index !== -1) {
+    bookList.splice(index, 1);
+    render();
+  }
 }
 function toggleReadStatus(id) {
-  const book = bookList.find(b => b.id === id);
+  const book = bookList.find((b) => b.id === id);
   if (book) {
     book.read = !book.read;
     render();
   }
 }
 
-const addBookBtn = document.getElementById('bookInfo');
-const formContainer = document.querySelector('.form');
-const closeFormBtn = document.getElementById('closeForm');
-const bookForm = document.getElementById('bookForm');
+const addBookBtn = document.getElementById("bookInfo");
+const formContainer = document.querySelector(".form");
+const closeFormBtn = document.getElementById("closeForm");
+const bookForm = document.getElementById("bookForm");
 
-addBookBtn.addEventListener('click', () => {
-  formContainer.style.display = 'flex';
+addBookBtn.addEventListener("click", () => {
+  formContainer.style.display = "flex";
 });
-closeFormBtn.addEventListener('click', () => {
-  formContainer.style.display = 'none';
+closeFormBtn.addEventListener("click", () => {
+  formContainer.style.display = "none";
 });
 
-bookForm.addEventListener('submit', (e) => {
-  e.preventDefault(); 
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const genre = document.getElementById('genre').value;
-  const pages = document.getElementById('pages').value;
-  const read = document.getElementById('read').checked;
+bookForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const genre = document.getElementById("genre").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").checked;
   addBookToLibrary(title, author, genre, pages, read);
 
   bookForm.reset();
-  formContainer.style.display = 'none';
+  formContainer.style.display = "none";
 });
