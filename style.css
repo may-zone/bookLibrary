@@ -153,8 +153,8 @@ body{
 .submit:hover {
   background-color: #45a049; 
 }
-.submit {
-  background-color: #4CAF50; 
+.closeForm {
+  background-color: #FF5722; 
   color: white;
   border: none;
   padding: 10px 20px;
@@ -164,6 +164,6 @@ body{
   transition: background-color 0.3s ease;
 }
 
-.submit:hover {
-  background-color: #45a049; 
+.closeForm:hover {
+  background-color: #FF5722; 
 }
