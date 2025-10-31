@@ -33,7 +33,7 @@ function render(){
       <p><strong>Genre:</strong> ${Book.genre}</p>
       <p><strong>Pages:</strong> ${Book.pages}</p>
       <p><strong>Read:</strong> ${Book.read ? '✅ Yes' : '❌ No'}</p>
-      <button class="remove-btn" data-id="${Book.id}">Remove</button>`;
+      <span class="remove-btn" data-id="${Book.id}">X</span>`;
       container.appendChild(card);
 
     });
@@ -52,4 +52,5 @@ function removeBook(id) {
         bookList.splice(index,1);
         render();
     }
+    
 }
