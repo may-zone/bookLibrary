@@ -14,36 +14,45 @@ function addBookToLibrary(title,author,genre,pages,read){
     bookList.push(newBook);
     render();
 }
-addBookToLibrary("1984", "George Orwell", "Dystopian", 328, true);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "Fantasy", 310, false);
-addBookToLibrary("یک عاشقانه آرام", "نادر ابراهیمی", "عاشقانه", 237 ,false);
+addBookToLibrary("1984", "George Orwell", "Dystopian", 328, false);
+addBookToLibrary("یک عاشقانه آرام", "نادر ابراهیمی", "عاشقانه", 237 ,true);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", "Fantasy", 310, true);
 
 
 
 
-function render(){
-    const container = document.querySelector('.booth');
-    container.innerHTML = ''
-    bookList.forEach(Book =>{
-        const card = document.createElement('div');
-        card.classList.add('card');
-        card.innerHTML =`
+function render() {
+  const container = document.querySelector(".booth");
+  container.innerHTML = "";
+  bookList.forEach((Book) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = `
               <h3>${Book.title}</h3>
       <p><strong>Author:</strong> ${Book.author}</p>
       <p><strong>Genre:</strong> ${Book.genre}</p>
       <p><strong>Pages:</strong> ${Book.pages}</p>
-      <p><strong>Read:</strong> ${Book.read ? '✅ ' : '❌'}</p>
+      <p>  <strong>Read:</strong> 
+  <span class="read-toggle" data-id="${Book.id}">
+    ${Book.read ? "✅" : "❌"}
+  </span></p>
       <span class="remove-btn" data-id="${Book.id}"></span>`;
-      container.appendChild(card);
-
+      const readToggles = document.querySelectorAll('.read-toggle');
+readToggles.forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    const id = e.target.dataset.id;
+    toggleReadStatus(id);
+  });
+});
+    container.appendChild(card);
+  });
+  const removeBtn = document.querySelectorAll(".remove-btn");
+  removeBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const id = e.target.dataset.id;
+      removeBook(id);
     });
-    const removeBtn = document.querySelectorAll('.remove-btn');
-    removeBtn.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const id = e.target.dataset.id;
-            removeBook(id);
-        });
-    });
+  });
 }
 
 function removeBook(id) {
@@ -53,6 +62,13 @@ function removeBook(id) {
         render();
     }
     
+}
+function toggleReadStatus(id) {
+  const book = bookList.find(b => b.id === id);
+  if (book) {
+    book.read = !book.read;
+    render();
+  }
 }
 
 const addBookBtn = document.getElementById('bookInfo');
