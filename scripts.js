@@ -43,9 +43,12 @@ function render() {
     container.appendChild(card);const toggle = card.querySelector('.read-toggle');
     const showMoreBtn = card.querySelector(".show-more");
 const details = card.querySelector(".book-details");
+const title = card.querySelector("h3");
+
 
 showMoreBtn.addEventListener("click", () => {
   details.classList.toggle("hidden");
+  title.classList.toggle("hidden");
   showMoreBtn.textContent = details.classList.contains("hidden")
     ? "Show more"
     : "Show less";
