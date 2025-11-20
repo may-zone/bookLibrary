@@ -2,6 +2,8 @@
 
 An ambient little book booth built for The Odin Project where you can shelve favorites, peek at their secrets, and keep track of your current reading streak with a single click.
 
+![Screenshot of My Library booth](SC.png)
+
 ## Features
 - Animated cards that flip between mysterious covers and full details with a *Show more* button.
 - Quick-add modal lets you log a title, genre, page count, and reading status without leaving the booth.
