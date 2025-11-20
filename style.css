@@ -69,6 +69,7 @@ body{
     aspect-ratio: 1 / 1;  
     grid-template-rows: auto 1fr auto;
     overflow: auto; 
+    transition: transform 0.25s ease;
 }
 .card::-webkit-scrollbar {
   width: 5px;
@@ -128,9 +129,11 @@ body{
   transition: transform 0.2s ease;
   width: clamp(60px, 8vw, 100px);
   height: clamp(60px, 8vw, 100px);
+  animation: pulseAddBook 2.8s ease-in-out infinite;
 }
 #bookInfo:hover {
   transform: scale(1.5); 
+  animation-play-state: paused; /* let users focus when hovering */
 }
 
 .form {
@@ -186,6 +189,25 @@ body{
     cursor: pointer;
 }
 
+@keyframes pulseAddBook {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  40% {
+    transform: scale(1.15) rotate(3deg);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
+  }
+  70% {
+    transform: scale(1) rotate(-3deg);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
 @font-face {
     font-family: 'nastaliq';
     src: url('/fonts/NotoNastaliqUrdu-VariableFont_wght.ttf') format('truetype');
@@ -223,5 +245,5 @@ position: absolute;
   display: none ;
 }
 .card:hover {
-  transform: scale(.5); 
+  transform: scale(1.05); 
 }
