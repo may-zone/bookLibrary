@@ -210,12 +210,12 @@ body{
 
 @font-face {
     font-family: 'nastaliq';
-    src: url('/fonts/NotoNastaliqUrdu-VariableFont_wght.ttf') format('truetype');
+    src: url('./fonts/NotoNastaliqUrdu-VariableFont_wght.ttf') format('truetype');
 
 }
 @font-face {
     font-family: 'cormorant';
-    src: url('/fonts/Cormorant_Garamond/static/CormorantGaramond-Bold.ttf') format('truetype');
+    src: url('./fonts/Cormorant_Garamond/static/CormorantGaramond-Bold.ttf') format('truetype');
 
 }
 .book-details.hidden {
@@ -243,7 +243,4 @@ position: absolute;
 }
 .hidden {
   display: none ;
-}
-.card:hover {
-  transform: scale(1.05); 
 }
