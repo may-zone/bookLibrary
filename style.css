@@ -222,3 +222,6 @@ position: absolute;
 .hidden {
   display: none ;
 }
+.card:hover {
+  transform: scale(.5); 
+}
