@@ -17,7 +17,7 @@ An ambient little book booth built for The Odin Project where you can shelve fav
 
 ## Getting Started
 ```bash
-git clone <this repo>
+git clone [<this repo>](https://github.com/may-zone/bookLibrary)
 cd bookLibrary
 # use any static server or simply double-click index.html
 ```
