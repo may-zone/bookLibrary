@@ -21,13 +21,13 @@
         <form id="bookForm" >
             <h3>Add a New Book</h3>
             <label>Title :</label>
-            <input type="text" id="title" required>
+            <input type="text" id="title" required oninvalid="this.setCustomValidity('The book title must be filled!')">
             <label>Author :</label>
-            <input type="text" id="author" required>
+            <input type="text" id="author" required oninvalid="this.setCustomValidity('The author name must be filled!')" >
             <label>Genre :</label>
-            <input type="text" id="genre" required>
+            <input type="text" id="genre" required oninvalid="this.setCustomValidity('The fucking genre  must be filled idiot !')">
             <label>Pages :</label>
-            <input type="number" id="pages" required>
+            <input type="number" id="pages" required oninvalid="this.setCustomValidity('its ok to dont know how many pages the book it has just, fill with 0')" >
             <label>
             I'm Read The Book.
             <input type="checkbox" id="read" >
