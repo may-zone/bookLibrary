@@ -129,11 +129,9 @@ body{
   transition: transform 0.2s ease;
   width: clamp(60px, 8vw, 100px);
   height: clamp(60px, 8vw, 100px);
-  animation: pulseAddBook 2.8s ease-in-out infinite;
 }
 #bookInfo:hover {
   transform: scale(1.5); 
-  animation-play-state: paused; /* let users focus when hovering */
 }
 
 .form {
@@ -187,25 +185,6 @@ body{
 }
 .read-toggle {
     cursor: pointer;
-}
-
-@keyframes pulseAddBook {
-  0% {
-    transform: scale(1) rotate(0deg);
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-  }
-  40% {
-    transform: scale(1.15) rotate(3deg);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.35);
-  }
-  70% {
-    transform: scale(1) rotate(-3deg);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
-  }
-  100% {
-    transform: scale(1) rotate(0deg);
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-  }
 }
 
 @font-face {
